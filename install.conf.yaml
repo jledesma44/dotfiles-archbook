@@ -1,0 +1,62 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ["~"]
+
+- create:
+    - ~/Development
+    - ~/Writing
+    - ~/Bin
+
+- shell:
+    - command: ./setup-zsh.sh
+      stdout: true
+      stderr: true
+      stdin: true
+    - command: ./setup_ohmyzsh.zsh
+      stdout: true
+      stderr: true
+    # - command: ./remove_old_configs.zsh
+    #   stdout: true
+    #   stderr: true
+
+- link:
+    ~/.zshrc:
+    ~/.zshenv:
+    ~/.bashrc:
+    ~/.gitconfig:
+    ~/.tmux.conf:
+    ~/.local/bin:
+    ~/.config/bat:
+    ~/.config/hypr:
+    ~/.config/kitty:
+    ~/.config/kmonad:
+    ~/.config/matugen:
+    ~/.config/nvim:
+    ~/.config/nwg-look:
+    ~/.config/pulse:
+    ~/.config/rofi:
+    ~/.config/waybar:
+    ~/.config/yay:
+# - shell:
+# - command: ./packages_install_update.zsh
+#   stdout: true
+#   stderr: true
+#   stdin: true
+# - command: ./setup_tpm.zsh
+#   stdout: true
+#   stderr: true
+#   stdin: true
+# - command: ./setup-github-ssh.zsh
+#   stdout: true
+#   stderr: true
+#   stdin: true
+# - command: ./tailscale-services.zsh
+#   stdout: true
+#   stderr: true
+#   stdin: true
+# - command: ./syncthing-services.zsh
+#   stdout: true
+#   stderr: true
+#   stdin: true
