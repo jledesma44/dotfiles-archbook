@@ -3,14 +3,13 @@
 # GitHub SSH Key Setup Script for macOS
 # This script creates SSH keys for GitHub and configures your system
 
-
 # Colors for output
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-set -e  # Exit on error
+set -e # Exit on error
 
 echo "######################################################################################"
 echo "                   ${YELLOW}!!  GITHUB SSH KEY SETUP !!${NC}                         "
@@ -26,10 +25,10 @@ echo -n "${BLUE}Do you want to proceed with SSH key setup for github? (y/n): ${N
 read proceed
 
 if [[ ! "$proceed" =~ ^[Yy]$ ]]; then
-    echo ""
-    echo "Setup cancelled. No changes were made."
-    echo ""
-    exit 0
+  echo ""
+  echo "Setup cancelled. No changes were made."
+  echo ""
+  exit 0
 fi
 
 echo ""
@@ -41,12 +40,14 @@ echo -n "Enter your GitHub email address: "
 read email
 
 if [ -z "$email" ]; then
-    echo "Error: Email address is required"
-    exit 1
+  echo "Error: Email address is required"
+  exit 1
 fi
 
 # Get hostname
-hostname=$(hostname -s)
+# hostname=$(hostname -s)
+# hostnamectl | grep 'hostname'
+hostnamectl --static
 
 # Create key filename with gh prefix and hostname
 key_name="gh_${hostname}"
@@ -72,9 +73,9 @@ eval "$(ssh-agent -s)"
 # Step 4: Create ~/.ssh/config if it doesn't exist
 ssh_config="$HOME/.ssh/config"
 if [ ! -f "$ssh_config" ]; then
-    echo "Creating ~/.ssh/config file..."
-    touch "$ssh_config"
-    chmod 600 "$ssh_config"
+  echo "Creating ~/.ssh/config file..."
+  touch "$ssh_config"
+  chmod 600 "$ssh_config"
 fi
 
 echo ""
@@ -82,10 +83,10 @@ echo "Updating SSH config..."
 
 # Check if GitHub config already exists
 if grep -q "Host github.com" "$ssh_config"; then
-    echo "GitHub configuration already exists in ~/.ssh/config"
-    echo "Please manually update it if needed."
+  echo "GitHub configuration already exists in ~/.ssh/config"
+  echo "Please manually update it if needed."
 else
-    cat >> "$ssh_config" << EOF
+  cat >>"$ssh_config" <<EOF
 
 # GitHub Configuration
 Host github.com
@@ -93,7 +94,7 @@ Host github.com
     IdentityFile $key_path
 
 EOF
-    echo "✓ Added GitHub configuration to ~/.ssh/config"
+  echo "✓ Added GitHub configuration to ~/.ssh/config"
 fi
 
 echo ""
@@ -111,10 +112,10 @@ echo "==================================="
 echo ""
 
 # Copy to clipboard if pbcopy is available
-if command -v xclip &> /dev/null; then
-    cat "${key_path}.pub" | xclip
-    echo "✓ Public key copied to clipboard!"
-    echo ""
+if command -v xclip &>/dev/null; then
+  cat "${key_path}.pub" | xclip
+  echo "✓ Public key copied to clipboard!"
+  echo ""
 fi
 
 # Step 7: Instructions for adding key to GitHub
@@ -140,43 +141,43 @@ echo -n "${GREEN}Do you want to convert your current git repository from HTTPS t
 read convert_repo
 
 if [[ "$convert_repo" =~ ^[Yy]$ ]]; then
-    echo ""
-    echo -n "Enter the path to your git repository (or press Enter for current directory): "
-    read repo_path
-    
-    if [ -z "$repo_path" ]; then
-        repo_path="."
-    fi
-    
-    if [ -d "$repo_path/.git" ]; then
-        cd "$repo_path"
-        current_url=$(git remote get-url origin 2>/dev/null || echo "")
-        
-        if [ -n "$current_url" ]; then
-            echo "Current remote URL: $current_url"
-            
-            # Extract username and repo name from HTTPS URL
-            if [[ "$current_url" =~ https://github.com/([^/]+)/([^/]+)(\.git)?$ ]]; then
-                username="${match[1]}"
-                repo="${match[2]}"
-                repo="${repo%.git}"  # Remove .git if present
-                
-                new_url="git@github.com:${username}/${repo}.git"
-                git remote set-url origin "$new_url"
-                
-                echo "✓ Changed remote URL to: $new_url"
-                echo ""
-                echo "Test the connection with: git fetch"
-            else
-                echo "Could not parse GitHub HTTPS URL. Please manually change it with:"
-                echo "git remote set-url origin git@github.com:USERNAME/REPO.git"
-            fi
-        else
-            echo "No remote 'origin' found in this repository."
-        fi
+  echo ""
+  echo -n "Enter the path to your git repository (or press Enter for current directory): "
+  read repo_path
+
+  if [ -z "$repo_path" ]; then
+    repo_path="."
+  fi
+
+  if [ -d "$repo_path/.git" ]; then
+    cd "$repo_path"
+    current_url=$(git remote get-url origin 2>/dev/null || echo "")
+
+    if [ -n "$current_url" ]; then
+      echo "Current remote URL: $current_url"
+
+      # Extract username and repo name from HTTPS URL
+      if [[ "$current_url" =~ https://github.com/([^/]+)/([^/]+)(\.git)?$ ]]; then
+        username="${match[1]}"
+        repo="${match[2]}"
+        repo="${repo%.git}" # Remove .git if present
+
+        new_url="git@github.com:${username}/${repo}.git"
+        git remote set-url origin "$new_url"
+
+        echo "✓ Changed remote URL to: $new_url"
+        echo ""
+        echo "Test the connection with: git fetch"
+      else
+        echo "Could not parse GitHub HTTPS URL. Please manually change it with:"
+        echo "git remote set-url origin git@github.com:USERNAME/REPO.git"
+      fi
     else
-        echo "Not a git repository: $repo_path"
+      echo "No remote 'origin' found in this repository."
     fi
+  else
+    echo "Not a git repository: $repo_path"
+  fi
 fi
 
 echo ""
