@@ -29,6 +29,8 @@
     ~/.tmux.conf:
     ~/.local/bin:
     ~/.config/bat:
+    ~/.config/gtk-3.0:
+    ~/.config/gtk-4.0:
     ~/.config/hypr:
     ~/.config/kitty:
     ~/.config/kmonad:
