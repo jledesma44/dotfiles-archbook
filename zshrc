@@ -172,7 +172,7 @@ alias gu="git pull"
 
 #Alias for adding new packages to list =================================
 
-alias pnd="ppd -Qqen > pkglist_native.txt"
+alias ppd="ppd -Qqen > pkglist_pac.txt"
 alias pyd="ppd -Qqem > pkglist_yay.txt"
 
 #Alias for running command for kmonad to start Slim-X1 keyboard =================================
@@ -189,6 +189,7 @@ RPROMPT='%*'
 # Add locations to $PATH Variables=========================================
 
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Functions ===============================================================
 
