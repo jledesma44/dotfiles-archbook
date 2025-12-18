@@ -172,8 +172,8 @@ alias gu="git pull"
 
 #Alias for adding new packages to list =================================
 
-alias ppd="ppd -Qqen > pkglist_pac.txt"
-alias pyd="ppd -Qqem > pkglist_yay.txt"
+alias ppd="pacman -Qqen > pkglist_pacman.txt"
+alias pyd="pacman -Qqem > pkglist_yay.txt"
 
 #Alias for running command for kmonad to start Slim-X1 keyboard =================================
 
@@ -215,3 +215,6 @@ export EDITOR=vim
 if [ -z "$TMUX" ]; then
   tmux new-session -A -s General-Shell
 fi
+
+# opencode
+export PATH=/home/jledesma44/.opencode/bin:$PATH
