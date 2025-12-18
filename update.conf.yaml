@@ -19,7 +19,7 @@
     ~/.local/bin:
 
 - shell:
-    - command: ./packages_install_update.zsh
+    - command: ./1.Scripts/packages_install_update.zsh
       stdout: true
       stderr: true
       stdin: true
