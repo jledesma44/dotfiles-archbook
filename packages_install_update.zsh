@@ -17,13 +17,13 @@ echo "##########################################################################
 sudo pacman -Syu
 
 #Install/Updates packages from pacman list.
-sudo pacman -S --noconfirm - <pkglist_native.txt
+sudo pacman -S --noconfirm --needed - <pkglist_pacman.txt
 
 #Install/Updates packages from yay/aur list.
-yay -S --noconfirm - <pkglist_yay.txt
+yay -S --noconfirm --needed - <pkglist_yay.txt
 
-#Add any newly installed packages to pkglist_native.txt file
-pacman -Qqe >pkglist_native.txt
+#Add any newly installed packages to pkglist_pacman.txt file
+pacman -Qqe >pkglist_pacman.txt
 
 #kmonad - change file permissions to run as user when using exec-once command
 sudo chmod u+s /usr/bin/kmonad
