@@ -14,6 +14,7 @@ firefox
 firefox-developer-edition
 fzf
 git
+grub
 gst-plugin-pipewire
 hypridle
 hyprland
@@ -45,6 +46,8 @@ qt6-wayland
 rofi
 swaync
 swww
+syncthing
+tailscale
 thunar
 tmux
 tree-sitter-cli
