@@ -172,8 +172,8 @@ alias gu="git pull"
 
 #Alias for adding new packages to list =================================
 
-alias ppd="pacman -Qqen > pkglist_pacman.txt"
-alias pyd="pacman -Qqem > pkglist_yay.txt"
+alias pbd="pacman -Qqen > ~/.dotfiles/2.Package-lists/pkglist_pacman.txt"
+alias ybd="pacman -Qqem > ~/.dotfiles/2.Package-lists/pkglist_yay.txt"
 
 #Alias for running command for kmonad to start Slim-X1 keyboard =================================
 
