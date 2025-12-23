@@ -24,6 +24,7 @@
 - link:
     ~/.zshrc:
     ~/.zshenv:
+    ~/.zprofile:
     ~/.bashrc:
     ~/.gitconfig:
     ~/.tmux.conf:
