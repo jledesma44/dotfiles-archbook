@@ -9,4 +9,4 @@ NC='\033[0m' # No Color
 echo "######################################################################################"
 echo "                ${YELLOW}!!  Removing old config files !!${NC}                                   "
 echo "######################################################################################"
-rm -rf ~/.zshrc ~/.bashrc
+rm -rf ~/.zshrc ~/.bashrc ~/.config/kitty ~/.config/hypr
