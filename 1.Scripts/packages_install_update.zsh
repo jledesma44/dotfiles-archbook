@@ -23,7 +23,7 @@ sudo pacman -S --noconfirm --needed - <~/.dotfiles/2.Package-lists/pkglist_pacma
 yay -S --noconfirm --needed - <~/.dotfiles/2.Package-lists/pkglist_yay.txt
 
 #Add any newly installed packages to pkglist_pacman.txt file
-pacman -Qqe >~/.dotfiles/pkglist_pacman.txt
+pacman -Qqe >~/.dotfiles/2.Package-lists/pkglist_pacman.txt
 
 #kmonad - change file permissions to run as user when using exec-once command
 sudo chmod u+s /usr/bin/kmonad
