@@ -8,6 +8,7 @@
     - ~/Development
     - ~/Writing
     - ~/Bin
+    - ~/.config
 
 - shell:
     - command: ./1.Scripts/setup-zsh.sh
@@ -17,9 +18,9 @@
     - command: ./1.Scripts/setup_ohmyzsh.zsh
       stdout: true
       stderr: true
-    # - command: ./1.Scripts/remove_old_configs.zsh
-    #   stdout: true
-    #   stderr: true
+    - command: ./1.Scripts/remove_old_configs.zsh
+      stdout: true
+      stderr: true
 
 - link:
     ~/.zshrc:
