@@ -8,7 +8,6 @@
     - ~/Development
     - ~/Writing
     - ~/Bin
-    - ~/.config
 
 - shell:
     - command: ./1.Scripts/setup-zsh.sh
