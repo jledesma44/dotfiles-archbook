@@ -6,8 +6,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-
 echo "######################################################################################"
 echo "                ${YELLOW}!!  Removing old config files !!${NC}                                   "
 echo "######################################################################################"
-rm -rf ~/.zshrc ~/.bashrc ~/.config/hypr/ ~/.config/kitty/ ~/.config/nvim/ ~/.config/waybar/
+rm -rf ~/.zshrc ~/.bashrc
