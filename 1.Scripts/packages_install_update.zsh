@@ -28,4 +28,6 @@ pacman -Qqe >~/.dotfiles/pkglist_pacman.txt
 #kmonad - change file permissions to run as user when using exec-once command
 sudo chmod u+s /usr/bin/kmonad
 
+sudo usermod -aG input jledesma44
+
 echo "${GREEN}All packages have been installed and or updated${NC}"
