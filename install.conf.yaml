@@ -55,6 +55,10 @@
       stdout: true
       stderr: true
       stdin: true
+    - command: ./1.Scripts/setup-kbd-backlight.zsh
+      stdout: true
+      stderr: true
+      stdin: true
     - command: ./1.Scripts/tailscale-services.zsh
       stdout: true
       stderr: true
