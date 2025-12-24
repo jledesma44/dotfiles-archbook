@@ -41,7 +41,9 @@
     ~/.config/pulse:
     ~/.config/rofi:
     ~/.config/waybar:
-    ~/.config/yay:
+    # ~/.config/yay:
+    ~/Pictures:
+
 - shell:
     - command: ./1.Scripts/packages_install_update.zsh
       stdout: true
