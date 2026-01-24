@@ -28,6 +28,9 @@
   ;; Caps Lock acts as escape when tapped, left ctrl when held
   cap (tap-hold-next 200 esc lctl)
 
+  ;; Mouse control
+  ms (tap-hold 250 esc (layer-switch mouse-nav))
+  
   ;; In open-apps layer - launch if not running, otherwise just switch to workspace
   ;; Uses shell logic to check if app exists before launching
   kit (cmd-button "sh -c 'hyprctl clients | grep -q \"class: kitty\" && hyprctl dispatch workspace 1 || (hyprctl dispatch exec \"[workspace 1 silent] kitty\" && hyprctl dispatch workspace 1)'")
@@ -47,7 +50,7 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   @hyp q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap a    s    d    f    g    h    j    k    l    ;    '    ret
+  @cap a    s    @ms  f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   fn   lctl lalt lmet           spc            rmet ralt left down up   rght
 )
@@ -69,3 +72,13 @@
   _    _    _    _    @vs  _    _    _    _    _    _    _
   _    _    _    _              _              _    _    _    _    _    _
 )
+
+(deflayer mouse-nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    @mltf _   @mrgt _   @ms← @ms↓ @ms↑ @ms→ _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _              _              _    _    _    _    _    _
+)
+
