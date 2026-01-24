@@ -1,10 +1,8 @@
 hyprpanel
 librewolf-bin
-librewolf-bin-debug
 matugen-bin
-matugen-bin-debug
 python-pywal16
 vscodium-bin
-vscodium-bin-debug
+wlogout
 yay-bin
 yay-bin-debug
