@@ -7,16 +7,26 @@
 - link:
     ~/.zshrc:
     ~/.zshenv:
+    ~/.zprofile:
     ~/.bashrc:
     ~/.gitconfig:
     ~/.tmux.conf:
+    ~/.local/bin:
     ~/.config/bat:
-    ~/.config/nvim:
+    ~/.config/gtk-3.0:
+    ~/.config/gtk-4.0:
+    ~/.config/hypr:
     ~/.config/kitty:
     ~/.config/kmonad:
-    ~/.config/hypr:
+    ~/.config/wlogout:
+    ~/.config/matugen:
+    ~/.config/nvim:
+    ~/.config/nwg-look:
+    ~/.config/pulse:
+    ~/.config/rofi:
     ~/.config/waybar:
-    ~/.local/bin:
+    # ~/.config/yay:
+    ~/Pictures:
 
 - shell:
     - command: ./1.Scripts/packages_install_update.zsh
