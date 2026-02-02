@@ -19,6 +19,13 @@ sudo pacman -Syu
 #Install/Updates packages from pacman list.
 sudo pacman -S --noconfirm --needed - <~/.dotfiles/2.Package-lists/pkglist_pacman.txt
 
+#Install yay package manager
+git clone https://aur.archlinux.org/yay-bin
+
+cd yay-bin
+
+makepkg -si
+
 #Install/Updates packages from yay/aur list.
 yay -S --noconfirm --needed - <~/.dotfiles/2.Package-lists/pkglist_yay.txt
 
