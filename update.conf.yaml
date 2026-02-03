@@ -26,7 +26,6 @@
     ~/.config/pulse:
     ~/.config/rofi:
     ~/.config/waybar:
-    # ~/.config/yay:
     ~/Pictures:
 
 - shell:
