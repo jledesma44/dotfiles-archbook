@@ -1,6 +1,12 @@
 #!/usr/bin/zsh
 
-# Script to open bluetui in a floating kitty window on Hyprland
+# Script to open/toggle bluetui in a floating kitty window on Hyprland
+
+# Toggle: if already open, close it
+if hyprctl clients -j | grep -q '"class": "floating-bluetui"'; then
+  hyprctl dispatch closewindow class:floating-bluetui
+  exit 0
+fi
 
 # Check if kitty is installed
 if ! command -v kitty &>/dev/null; then
