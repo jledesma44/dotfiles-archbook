@@ -24,6 +24,6 @@ fi
 # Launch Wifi manager in floating kitty window
 kitty --class wifi-tui \
   --title "Wifi Manager" \
-  -o initial_window_width=800 \
-  -o initial_window_height=600 \
+  -o initial_window_width=1400 \
+  -o initial_window_height=800 \
   gazelle
