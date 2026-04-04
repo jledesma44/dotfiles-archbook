@@ -11,9 +11,6 @@ vim.keymap.set("n", "<leader>ps", ":PencilSoft<CR>") -- toggle PencilSoft
 -- Use jj to esc insert mode
 vim.keymap.set("i", "jj", "<Esc>", { desc = "escapes with jj" })
 
---  Save file
-vim.keymap.set("n", "<leader>ww", ":w!<CR>", { desc = "Save File", noremap = true, silent = true })
-
 -- Use <leader>tu (Text-Uppercase) to convert current word to upper case
 vim.keymap.set(
   { "n", "o" },
@@ -30,7 +27,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "change selected text to uppercase" }
 )
 
---Find and replace text in visual-block
+--Find and replace pattern text in visual-block
 vim.keymap.set(
   "v",
   "<leader>r",
@@ -38,13 +35,24 @@ vim.keymap.set(
   { desc = "replace selected text in visual block ", noremap = true, silent = true }
 )
 
---Find a replace text all (in file)
+--Find and replace pattern text "selected only"
+vim.keymap.set(
+  "n",
+  "<leader>rc",
+  ":%s///gc<Left><Left><Left><Left>",
+  { desc = "replace selected text with confirmation ", noremap = true, silent = true }
+)
+--Find a replace pattern text all (in file)
 vim.keymap.set(
   "n",
   "<leader>rr",
   ":%s///g<Left><Left><Left>",
   { desc = "replace selected text whole file", noremap = true, silent = true }
 )
+
+--  Save file
+vim.keymap.set("n", "<leader>ww", ":w!<CR>", { desc = "Save File", noremap = true, silent = true })
+
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>", { desc = "resize-up", noremap = true, silent = true })
 vim.keymap.set("n", "<Down>", ":resize +2<CR>", { desc = "resize-down", noremap = true, silent = true })
@@ -55,12 +63,7 @@ vim.keymap.set("n", "<Right>", ":vertical resize -2<CR>", { desc = "resize-horiz
 vim.keymap.set("n", "<leader>cp", ":CccPick<CR>", { desc = "ColorPicker", noremap = true, silent = true })
 
 -- Toggle px to rem
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>pt",
-  ":PxToRemLine<CR>",
-  { desc = "Toggle_Px_To_Rem", noremap = true, silent = true }
-)
+vim.keymap.set({ "n", "v" }, "<leader>pt", ":PxToRemLine<CR>", { desc = "Px_To_Rem", noremap = true, silent = true })
 
 -- Toggle Auto Save
 vim.keymap.set("n", "<leader>as", ":ASToggle<CR>", { desc = "Toggle_Auto_Save", noremap = true, silent = true })
