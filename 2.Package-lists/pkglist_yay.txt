@@ -1,3 +1,4 @@
+gazelle-tui
 hyprpanel
 librewolf-bin
 matugen-bin
