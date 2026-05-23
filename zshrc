@@ -175,6 +175,14 @@ alias gu="git pull"
 alias pbd="pacman -Qqen > ~/.dotfiles/2.Package-lists/pkglist_pacman.txt"
 alias ybd="pacman -Qqem > ~/.dotfiles/2.Package-lists/pkglist_yay.txt"
 
+#Aliases for updating packages =================================
+
+alias pacupdate="~/.dotfiles/1.Scripts/packages_install_update.zsh"
+
+#Aliases for creating ssh keys for github =================================
+
+alias ssh-github="$HOME/.dotfiles/1.Scripts/setup-github-ssh.zsh"
+
 #Alias for running command for kmonad to start Slim-X1 keyboard =================================
 
 alias slim="nohup kmonad ~/.config/kmonad/config/Slim-X1.kbd &"
@@ -221,16 +229,15 @@ export PATH=/home/jledesma44/.opencode/bin:$PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jledesma44/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jledesma44/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/home/jledesma44/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jledesma44/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jledesma44/anaconda3/bin:$PATH"
-    fi
+  if [ -f "/home/jledesma44/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/jledesma44/anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/home/jledesma44/anaconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
