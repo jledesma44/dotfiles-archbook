@@ -20,7 +20,7 @@ sudo pacman -Syu --noconfirm
 
 # Install/update packages from pacman list
 echo -e "\n${BLUE}==> Installing pacman packages...${NC}"
-sudo pacman -S --noconfirm --needed - < "$PACMAN_LIST"
+sudo pacman -S --noconfirm --needed $(grep -v '^[[:space:]]*$' "$PACMAN_LIST")
 
 # Install yay AUR helper if not already installed
 if ! command -v yay &>/dev/null; then
@@ -45,7 +45,7 @@ fi
 
 # Install/update packages from yay/AUR list
 echo -e "\n${BLUE}==> Installing AUR packages...${NC}"
-yay -S --noconfirm --needed - < "$YAY_LIST"
+yay -S --noconfirm --needed $(grep -v '^[[:space:]]*$' "$YAY_LIST")
 
 # kmonad: allow running as user via exec-once
 echo -e "\n${BLUE}==> Configuring kmonad permissions...${NC}"
