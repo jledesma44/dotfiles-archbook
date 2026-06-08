@@ -1,4 +1,6 @@
+1password
 gazelle-tui
+gvfs-google
 hyprpanel
 librewolf-bin
 matugen-bin

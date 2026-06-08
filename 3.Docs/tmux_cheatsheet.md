@@ -27,3 +27,9 @@
 ```
 
 ```
+
+1. Creating a new session in a bash shell
+
+```tmux
+:new -s "Session-Name" /bin/bash
+```
