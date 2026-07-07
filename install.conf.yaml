@@ -70,3 +70,7 @@
       stdout: true
       stderr: true
       stdin: true
+    - command: sudo cp ./kmonad/tmpfiles/kmonad.conf /etc/tmpfiles.d/ && sudo systemd-tmpfiles --create /etc/tmpfiles.d/kmonad.conf
+      stdout: true
+      stderr: true
+      stdin: true
