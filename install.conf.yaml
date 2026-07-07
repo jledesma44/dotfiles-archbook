@@ -66,3 +66,7 @@
       stdout: true
       stderr: true
       stdin: true
+    - command: sudo cp ./kmonad/udev/99-kmonad.rules /etc/udev/rules.d/ && sudo udevadm control --reload-rules && sudo udevadm trigger
+      stdout: true
+      stderr: true
+      stdin: true
