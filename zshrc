@@ -227,6 +227,22 @@ fi
 # opencode
 export PATH=/home/jledesma44/.opencode/bin:$PATH
 
+#Safely unmount and power off a USB drive "ARCH LINUX"
+ejectusb() {
+  if [ -z "$1" ]; then
+    echo "Error: Please specify a drive (e.g., ejectusb sdb)"
+    return 1
+  fi
+
+  local drive="/dev/$1"
+
+  echo "Unmounting paritions for $drive..."
+  sudo umount "${drive}"* 2>/dev/null
+
+  echo "Powering off $drive..."
+  sudo udisksctl power-off -b "$drive"
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jledesma44/anaconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
